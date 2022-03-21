@@ -147,4 +147,7 @@ function handleSubmit(event) {
   const form = new FormData(this)
   $buttonMailto.setAttribute('href', `mailto:sofia.linares25@gmail.com?subject=nombre ${form.get('name')}  correo ${form.get('email')}&body=${form.get('message')}`)
   $buttonMailto.click()
+  var novedades = prompt ('Hola! Escribe tu mail para más novedades.');
+swal ('Estaremos enviando más informacion a tu mail  ' +novedades);
 }
+
