@@ -9,6 +9,12 @@ h3 {
     text-align: center;
     color: white;
 }
+
+label {
+    text-align: center;
+    color: white;
+}
+
 h4 {
     font-size: 16px;
     font-weight: 700;
