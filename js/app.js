@@ -130,10 +130,10 @@ function vaciarLocalStorage() {
 }
 
 function alerta (){
-    alert("Agregado al carrito")
+    swal("Agregado al carrito")
 }
 
 function alertaremovido (){
-    alert("Carrito vacio")
+    swal("Carrito vacio")
 }
 
