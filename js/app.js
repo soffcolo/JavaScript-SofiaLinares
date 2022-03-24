@@ -3,6 +3,7 @@ const Botas = document.getElementById("lista-Botas");
 const listaBotas = document.querySelector("#lista-carrito tbody");
 const vaciarCarritoBtn = document.getElementById("vaciar-carrito");
 
+
 cargarEventListeners();
 
 function cargarEventListeners() {
@@ -45,7 +46,7 @@ function insertarCarrito(Bota) {
        </td>
     `;
     listaBotas.appendChild(row);
-    guardarBotaLocalStorage(Bota);
+    guardarBotaslosLocalStorage(Bota);
 }
 
 function eliminarBota(e) {
@@ -59,7 +60,7 @@ function eliminarBota(e) {
         Bota = e.target.parentElement.parentElement;
         BotaId = Bota.querySelector('a').getAttribute('data-id');
     }
-    eliminarBotaLocalStorage(BotaId)
+    eliminarBotaslosLocalStorage(BotaId)
 }
 
 function vaciarCarrito(){
@@ -71,10 +72,10 @@ function vaciarCarrito(){
     return false;
 }
 
-function guardarBotaLocalStorage(Bota) {
+function guardarBotaslosLocalStorage(Bota) {
     let Botas;
 
-    Botas = obtenerBotasLocalStorage();
+    Botas = obtenerBotaslosLocalStorage();
     Botas.push(Bota);
 
     localStorage.setItem('Botas', JSON.stringify(Botas));
@@ -94,7 +95,7 @@ function obtenerBotaslosLocalStorage() {
 function leerLocalStorage() {
     let BotasLS;
 
-    BotasLS = obtenerBotasLocalStorage();
+    BotasLS = obtenerBotaslosLocalStorage();
 
     BotasLS.forEach(function(Bota){
         const row = document.createElement('tr');
@@ -112,9 +113,9 @@ function leerLocalStorage() {
     });
 }
 
-function eliminarBotaLocalStorage(Bota) {
+function eliminarBotaslosLocalStorage(Bota) {
     let BotasLS;
-    BotasLS = obtenerBotasLocalStorage(); 
+    BotasLS = obtenerBotaslosLocalStorage(); 
 
     BotasLS.forEach(function(BotaLS, index){
         if(BotaLS.id === Bota) {
@@ -150,4 +151,5 @@ function handleSubmit(event) {
   var novedades = prompt ('Hola! Escribe tu mail para más novedades.');
 swal ('Estaremos enviando más informacion a tu mail  ' +novedades);
 }
+
 
