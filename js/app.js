@@ -116,16 +116,17 @@ function leerLocalStorage() {
 }
 
 function calcular_Total () {
-    var subtotales = document.getElementsByName ('precio');
-var total = document.getElementById ('total');
+    let suma = 0
+    let botasGuardadas = JSON.parse(localStorage.getItem('Botas'))
+    for (let i = 0; i< botasGuardadas.length; i++){
+       suma += Number(botasGuardadas[i]['precio'])
+        
+        console.log('El valor de cada bota: ' + botasGuardadas[i]['precio'])
+        console.log('la suma total ' + suma)
+    
+    }
 
-var suma = 0; 
-
-for (var i = 0; i < subtotales.length; i++) { console.log (subtotales[i])
-suma= suma + Number(subtotales[i].innerText)
-}
-total.innerText = "Total $"+suma;
-
+    total.innerText = "Total $ "+suma;
 }
 
 
