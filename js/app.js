@@ -2,6 +2,7 @@ const carrito = document.getElementById("carrito");
 const Botas = document.getElementById("lista-Botas");
 const listaBotas = document.querySelector("#lista-carrito tbody");
 const vaciarCarritoBtn = document.getElementById("vaciar-carrito");
+const DOMtotal = document.querySelector('#total');
 
 
 cargarEventListeners();
@@ -104,14 +105,30 @@ function leerLocalStorage() {
                 <img src="${Bota.imagen}" width=100>
             </td>
             <td>${Bota.titulo}</td>
-            <td>${Bota.precio}</td>
+            <td name='precio'>${Bota.precio}</td>
             <td>
                 <a href="#" class="borrar-Bota" data-id="${Bota.id}">X</a>
             </td>
         `;
+        calcular_Total ();
         listaBotas.appendChild(row);
     });
 }
+
+function calcular_Total () {
+    var subtotales = document.getElementsByName ('precio');
+var total = document.getElementById ('total');
+
+var suma = 0; 
+
+for (var i = 0; i < subtotales.length; i++) { console.log (subtotales[i])
+suma= suma + Number(subtotales[i].innerText)
+}
+total.innerText = "Total $"+suma;
+
+}
+
+
 
 function eliminarBotaslosLocalStorage(Bota) {
     let BotasLS;
@@ -138,6 +155,10 @@ function alertaremovido (){
     swal("Carrito vacio")
 }
 
+function alertacompra (){
+    swal("¡Gracias por su compra!")
+}
+
 const $form = document.querySelector('#form')
 const $buttonMailto = document.querySelector('#xdmail')
 
@@ -152,4 +173,22 @@ function handleSubmit(event) {
 swal ('Estaremos enviando más informacion a tu mail  ' +novedades);
 }
 
+
+
+
+
+var contenido = document.querySelector ('#contenido')
+function traer () {
+    fetch ('https://randomuser.me/api')
+    .then (res => res.json())
+    .then (data => {
+        console.log(data.results['0'])
+        contenido.innerHTML = `
+        <img src="${data.results['0'].picture.large}" width="100px" class="img-fluid rounded-circle">
+        <p>Nombre:${data.results['0'].name.last} </p>
+        <p>Email:${data.results['0'].email} </p>
+
+        `
+    })
+}
 
