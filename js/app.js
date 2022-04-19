@@ -20,6 +20,7 @@ function comprarBota(e) {
     if(e.target.classList.contains('agregar-carrito')){
         const Bota = e.target.parentElement.parentElement;
         leerDatosBota(Bota);
+        calcular_Total();
     }
 }
 
@@ -62,6 +63,7 @@ function eliminarBota(e) {
         BotaId = Bota.querySelector('a').getAttribute('data-id');
     }
     eliminarBotaslosLocalStorage(BotaId)
+    calcular_Total();
 }
 
 function vaciarCarrito(){
@@ -126,7 +128,7 @@ function calcular_Total () {
     
     }
 
-    total.innerText = "Total $ "+suma;
+    DOMtotal.innerText = "Total $ "+suma;
 }
 
 
@@ -158,6 +160,7 @@ function alertaremovido (){
 
 function alertacompra (){
     swal("¡Gracias por su compra!")
+    vaciarCarrito();
 }
 
 const $form = document.querySelector('#form')
