@@ -35,6 +35,8 @@ function leerDatosBota(Bota){
     insertarCarrito(infoBota);
 }
 
+// Funcion local storage e info de botas
+
 function insertarCarrito(Bota) {
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -117,6 +119,8 @@ function leerLocalStorage() {
     });
 }
 
+// Funcion total del carrito
+
 function calcular_Total () {
     let suma = 0
     let botasGuardadas = JSON.parse(localStorage.getItem('Botas'))
@@ -131,7 +135,7 @@ function calcular_Total () {
     DOMtotal.innerText = "Total $ "+suma;
 }
 
-
+// Funcion eliminar y vaciar carro
 
 function eliminarBotaslosLocalStorage(Bota) {
     let BotasLS;
@@ -150,6 +154,9 @@ function vaciarLocalStorage() {
     localStorage.clear();
 }
 
+// Funcion Alertas con Swal
+
+
 function alerta (){
     swal("Agregado al carrito")
 }
@@ -162,6 +169,8 @@ function alertacompra (){
     swal("¡Gracias por su compra!")
     vaciarCarrito();
 }
+
+// Formulario de contacto
 
 const $form = document.querySelector('#form')
 const $buttonMailto = document.querySelector('#xdmail')
@@ -178,7 +187,7 @@ swal ('Estaremos enviando más informacion a tu mail  ' +novedades);
 }
 
 
-
+// API de gente random
 
 
 var contenido = document.querySelector ('#contenido')
